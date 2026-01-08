@@ -1,0 +1,666 @@
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apiário Malta</title>
+
+<style>
+:root{
+    --primary:#F4B400;
+    --dark:#1f1f1f;
+    --gray:#f5f5f5;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', Arial, sans-serif;
+}
+
+body{
+    background:#fafafa;
+    color:#333;
+}
+
+/* HEADER */
+header{
+    background:#fff;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:15px 30px;
+    box-shadow:0 2px 8px rgba(0,0,0,.05);
+    flex-wrap:wrap;
+}
+
+header img{
+    height:45px;
+}
+
+header h1{
+    font-size:22px;
+    color:var(--dark);
+    font-weight:600;
+}
+
+/* INSTITUCIONAL */
+.institucional{
+    max-width:1100px;
+    margin:40px auto;
+    background:#fff;
+    border-radius:20px 20px 0 0;
+    padding:40px;
+    box-shadow:0 8px 25px rgba(0,0,0,.06);
+}
+
+.institucional img{
+    width:100%;
+    height:auto;
+    max-height:280px;
+    object-fit:cover;
+    border-radius:14px;
+    margin-bottom:25px;
+}
+
+.institucional h2{
+    margin-bottom:15px;
+}
+
+.institucional p{
+    line-height:1.7;
+    color:#555;
+}
+
+/* CARROSSEL */
+.carousel{
+    max-width:900px;
+    width:90%;
+    aspect-ratio:16/9;
+    margin:40px auto;
+    overflow:hidden;
+    border-radius:14px;
+    position:relative;
+}
+
+.carousel-track{
+    display:flex;
+    height:100%;
+    transition:.6s ease;
+}
+
+.carousel img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    flex-shrink:0;
+}
+
+.indicators{
+    position:absolute;
+    bottom:10px;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    gap:8px;
+}
+
+.indicators span{
+    width:10px;
+    height:10px;
+    background:#ddd;
+    border-radius:50%;
+    cursor:pointer;
+}
+
+.indicators .active{
+    background:var(--primary);
+}
+
+/* PRODUTOS */
+.produtos{
+    max-width:1100px;
+    margin:60px auto;
+    padding:0 20px;
+}
+
+.produtos h2{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:#fff;
+    border-radius:14px;
+    padding:25px;
+    box-shadow:0 8px 20px rgba(0,0,0,.06);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+}
+
+.card img{
+    width:100%;
+    max-width:220px;
+    height:auto;
+    object-fit:contain;
+    margin-bottom:15px;
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+/* BENEFÍCIOS */
+.beneficios{
+    background:var(--gray);
+    padding:60px 30px;
+}
+
+.beneficios-grid{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:30px;
+}
+
+.beneficio{
+    background:#fff;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 6px 15px rgba(0,0,0,.05);
+}
+
+.beneficio h4{
+    margin-bottom:10px;
+}
+
+/* CTA */
+.cta{
+    background:var(--primary);
+    color:#fff;
+    text-align:center;
+    padding:50px 20px;
+}
+
+.cta h2{
+    margin-bottom:15px;
+}
+
+/* CONTADOR */
+.counter{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    margin:15px 0;
+}
+
+.counter button{
+    width:36px;
+    height:36px;
+    border:none;
+    border-radius:6px;
+    background:var(--primary);
+    color:#fff;
+    font-size:18px;
+    cursor:pointer;
+}
+
+.counter span{
+    min-width:32px;
+    font-size:18px;
+    text-align:center;
+}
+
+/* BOTÃO */
+.card a{
+    margin-top:auto;
+    width:100%;
+    background:#25D366;
+    color:#fff;
+    padding:12px;
+    border-radius:6px;
+    text-decoration:none;
+    font-weight:600;
+}
+
+/* MODAL */
+.form-modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.5);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    z-index:1000;
+}
+
+.form-box{
+    background:#fff;
+    padding:30px;
+    border-radius:12px;
+    width:100%;
+    max-width:420px;
+    position:relative;
+}
+
+.form-box input,
+.form-box select{
+    width:100%;
+    padding:10px;
+    margin:8px 0 18px;
+    border-radius:6px;
+    border:1px solid #ddd;
+}
+
+.form-box button{
+    width:100%;
+    padding:12px;
+    background:var(--primary);
+    border:none;
+    color:#fff;
+    font-weight:600;
+    border-radius:6px;
+}
+
+.local-retirada{
+    margin-bottom:18px;
+    cursor:pointer;
+    text-decoration:underline;
+}
+
+.close-modal{
+    position:absolute;
+    top:12px;
+    right:15px;
+    background:var(--primary);
+    color:#fff;
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    cursor:pointer;
+}
+  /* BENEFÍCIOS */
+.beneficios{
+    background:#f4f6f8;
+    padding:60px 20px;
+}
+
+.beneficios-container{
+    max-width:1100px;
+    margin:0 auto;
+}
+
+.beneficios-container h2{
+    text-align:center;
+    margin-bottom:40px;
+    font-size:28px;
+    color:#1f1f1f;
+}
+
+.beneficios-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+    gap:30px;
+}
+
+.beneficio-card{
+    background:#ffffff;
+    padding:28px;
+    border-radius:14px;
+    box-shadow:0 8px 22px rgba(0,0,0,0.06);
+    transition:transform .3s, box-shadow .3s;
+}
+
+.beneficio-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 12px 28px rgba(0,0,0,0.08);
+}
+
+.beneficio-card h3{
+    margin-bottom:10px;
+    font-size:18px;
+    color:#1f1f1f;
+}
+
+.beneficio-card p{
+    font-size:15px;
+    color:#555;
+    line-height:1.6;
+}
+
+/* CTA */
+.cta{
+    background:linear-gradient(135deg, #f4b400, #f1a800);
+    padding:70px 20px;
+    text-align:center;
+    color:#ffffff;
+}
+
+.cta h2{
+    font-size:30px;
+    margin-bottom:15px;
+    font-weight:600;
+}
+
+.cta p{
+    font-size:17px;
+    margin-bottom:25px;
+    opacity:0.95;
+}
+
+.cta a{
+    display:inline-block;
+    background:#ffffff;
+    color:#1f1f1f;
+    padding:14px 34px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:600;
+    transition:background .3s, transform .3s;
+}
+
+.cta a:hover{
+    background:#f4f6f8;
+    transform:scale(1.05);
+}
+
+/* RESPONSIVO */
+@media(max-width:600px){
+    .beneficios-container h2,
+    .cta h2{
+        font-size:24px;
+    }
+}
+
+
+/* FOOTER */
+footer{
+    background:#1f1f1f;
+    color:#ccc;
+    text-align:center;
+    padding:20px;
+    font-size:14px;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+    header{
+        justify-content:center;
+        text-align:center;
+    }
+
+    header h1{
+        font-size:18px;
+    }
+
+    .institucional{
+        padding:25px;
+        margin:20px;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+    <img src="https://instagram.frec26-2.fna.fbcdn.net/v/t51.2885-19/459585448_890728316278026_6910967887452078128_n.jpg">
+    <h1>Apiário Malta</h1>
+</header>
+
+<section class="institucional">
+    <img src="https://images.unsplash.com/photo-1505577058444-a3dab90d4253?q=80&w=1200&auto=format&fit=crop" alt="Apiário e produção de mel">
+
+    <h2>Sobre o Apiário Malta</h2>
+    <p>
+        O Apiário Malta atua na produção de mel puro e natural, acompanhando
+        todo o processo desde o cuidado com as abelhas até a embalagem final.
+        Trabalhamos com responsabilidade ambiental, qualidade e rastreabilidade,
+        garantindo um produto saudável e confiável para nossos clientes.
+    </p>
+</section>
+
+<section class="carousel">
+    <div class="carousel-track">
+        <img src="https://th.bing.com/th/id/OIP.f6I-bJir9XBc9uWAIvxpdwHaHa?w=220&h=220&c=7&r=0&o=7&pid=1.7&rm=3">
+        <img src="https://th.bing.com/th/id/OIP.yrU1m0Y0p1I4a0dAgg5TFQHaHa?w=216&h=216&c=7&r=0&o=7&pid=1.7&rm=3">
+        <img src="https://th.bing.com/th/id/OIP.qEicaQvTo0PRD3Klfi3dQgHaEW?w=305&h=180&c=7&r=0&o=7&pid=1.7&rm=3">
+    </div>
+    <div class="indicators"></div>
+</section>
+
+    <section class="beneficios">
+    <div class="beneficios-container">
+        <h2>Por que escolher o Apiário Malta?</h2>
+
+        <div class="beneficios-grid">
+            <div class="beneficio-card">
+                <h3>🍯 Mel 100% Natural</h3>
+                <p>Produto puro, sem aditivos químicos, preservando sabor e nutrientes.</p>
+            </div>
+
+            <div class="beneficio-card">
+                <h3>🌱 Produção Sustentável</h3>
+                <p>Cuidado com as abelhas e respeito total ao meio ambiente.</p>
+            </div>
+
+            <div class="beneficio-card">
+                <h3>📦 Qualidade Controlada</h3>
+                <p>Processo rigoroso desde o apiário até a embalagem final.</p>
+            </div>
+
+            <div class="beneficio-card">
+                <h3>🤝 Confiança e Tradição</h3>
+                <p>Compromisso com excelência, transparência e satisfação do cliente.</p>
+            </div>
+        </div>
+    </div>
+</section>
+  
+<section class="produtos">
+    <h2>Nossos Produtos</h2>
+    <div class="cards">
+
+        <div class="card" data-tamanho="350ml">
+            <img src="data:image/webp;base64,UklGRo4MAABXRUJQVlA4IIIMAADQPQCdASr3AMsAPp1MoUwlpC4wJBk5UgATiWMtlcnq+OkFK/NPmIYfGMdT97ylPfupnhU+2Pq+iTbx+ZvztfN99LPqaefs9qCf897PZzMxCAMnT7KYVDxn+95Uf3PfgquHjntxhtyGKmwIAyE5FPwxO0VxOG5+PazBAdM5ZuOqDvk9GwXVNDoDVd2j0VYnQ4a+EQ8Ht4zuEldxpWDlOwGOFDKqO+LWzusZ5Xe7YjZAsO5nLy4ZvzBPpcW9T/J36HXRRDmpz6JIi4EK204T2sVCO9n/s/+AISJIEpz6BuJrLBlAQWa7EO2O3WDKlu9BlKMv/EihGdZWOqDmILSucT8MMkQKrxsfPrjHPOYlWyW0FQauocxToYxkSoqm6i2QFaig9Vt8+eUhpb+AZ1ld4wSg4XnNpzkB3QsjX1JUYTIvHwVbueHD+944FiTQVs430mvgHF1hlGTQkTMElKsQERkVpc6QaPyFrQraH70FDWIDi7dYF1hQNvrELdpLJdT+k/qJv47CErOXVXrWNd8qJvI5Da9G5ZAD6DogVw+txcWkuhKF1ZAlHIWpEFoNiNfjUuH3+hRxA1xWXIWHCWwemwUvN9DGtbkxLyBotw/WvzMrPJWua+cBNJpjs+bMYnJ/4krYOB1VuWIdL6JDoHkddhe2bvQRuY7aAAD+6dGfdjknijI49ksjU4LPdoBa4LjNryhCfHQvWnSa0fE0ic4kzluxsxooNevPdMr6puHdSyDoy4Le0zAbfem4gKu6UQ4Ul05CCAv+lSNaHYyj96t/KiyaHIUE0B3JBqI4JvWkw0cysl9tIEIZ8G8vafEW9fxTz6Q5ccNFve/K/CsuXBkIBDndDZPY8qDqO8nku8waWuMAmA32EgQGbSTO0wSIFbPzLK4kuUIIHOhlyfT3hyZ2YntC/uCQ29SdG8A91YSaXDSbXm1+QoTyIfUce9JQjJjS2kFWkOgdbg4IAjobdgu9ssKjiQjdVueypzoh7GeL4j9ZuLMiO2XvNfk+xzy1c0xbykfWMfqYjYsDFI8AeHW1vLz7NI5CzGlShgBjqGzeQf3mmxyfzhjUW6Gc6Z2CDAjNaEzXhBkHXKdUKUDHTAsh7ZpsN3sfHAMo2wn5/iAVSPwSrzU8hQyXyqNFH8wLzhM3FLWNdH1S+n3I/OF6LmsUIKAiDVweCG47sQgHu6vsTj0YRVZ29SFTASjKpUufm+Wp2vFfxmsFzjG+jaNyEuFBYK/Ikmek5vqaLNf26F98EQNd0obOWjRqL2E0JMmpwW/xLXN/8KQ29LTRPFCXs2B0q0KTvneWbTauKlctIe2KG1NVFsY1eAtXbqUYktQtVFCbosrynn5JFVeF3sf8JkVoeGX5a+yOFrTBADTY4HsmgFf4xXOsXE9tJ/rTb2LUcmjTcc5Im01MnS9a3pTwqu8svcXtuyZrNKtCK0DeLodkx+hHuy+pM0FD1pS8ELSNOgKjB0KXgeO7nFSircWsPfz0FLV4X6N3dm8v+n46U6khxn6ALoYSt7OAz24iBz7daQ6pc0LIpK9rah7tf4Q9noCHkItqA7G5l1jjxqazm9f9DK6Etx+d/NEIVnA4u+2dys6mUB+fwWqff8PrBYaUx/9iWb36fWLety7KLk0NZUUshFVyOGsgEUXApMwB7eNgFtrWNDV03gKh0SB5WweQTvQ5H92RO/fJWPrhYOpo5Ipg7wuikr7KGfol12CbOaQwQ6KOF02/PcWMO45IJleY/86SINp/i1KMUVOiW6Ez1kvw8mZzLpTBUHgRx9If0ZyGAzhTtyKLbDdg0Cz/l7gc4auw6W+cdVDcoSpBxBuD46O4kBzZUex3l6YfB27XXhs+zk8Bw+tBelVn3P+sNR6bn/xEWuVk2YIN2P28azftWcy/dkiqPD7j/10uXENM9BV0MQsG0W4XSBx9HPXtXhArMYx5UJN4uRnp3tMrwuRF4WrzxveaARRh3DMu/FW1lR5t3bXRNNepeR5K+kpEZ810MxxvYFIGLQ7gL0zFFlXVQVsA9Q8MqjiLo3nsALmikjWKkurAZpxNqZ1VsPQ7JskHNECUn7mszAEpv3pOQj43N8752LaTfo6hl8RdNYFoBL1UJPL3BOKxwq3lh9Ymm1cy6EBtaNhsgUYBdtEIF2fUnOFejQW6BgC12A+7EsHF+MntaP+BAutlNDq+UjZkj0VduuQ3OV+8lGktF/W/WxdSQT5OZV0Up78IiBPJFf8uE30GntflOOQ7qyk8QUXVe0ZPhQ7eTdoHs9kCTgn3In667VCumliHY3Qvh/x2cMUpedWRSU0fqzFj4J2xT0DAT36uI/bnKeySoDeZkySU7eY6MPCt/vMN/j2v/whckEqGYnnjLJ4nIRoR1QVH2ilzxOaJVfsQfhj/WCKV8WYBfOzwSbgrKRFoANq/cj1MPFXbZWyVQZb4XyEME0qVrWnS+H3r92dKL+hjipU3NfUo6zzW8oe7XEzULMHr6eJLoTmOICKznTcJrayrowuA3BfCWOya6iapsJSp7lums98B3ObLLr45WlBWAxJk6lBp5czLzZZIfL6d+cFk1sm1QWVud8SefioXRgBE3+kvqAIqfRU9cZ3z6GaOs1LPx50qwhFfWSrzrCAkY9QLo0Ms174rViqa6/bgYsOPQYIxTQbw7IQFcNDKX0vVhD53tTBsxuo6ITEkm3H5S+Yauxx5jJYrJ6aOew2xUYYUhcEP7YvSZ7rzZx6RSRV45MP/rChHMdo5PijD84oBzN5ox7jCapzPdBR+6uN4gYoYoNZiQKTc834PzYiU2ad4dKyYStmEVz82Z9s5jQHIx0Kcflnskah0h2PC1BVuIT4YzPxPO/RLMZax/K4vRTULgplu/gHhfO77N1loEKnG2ah4Nqp3vEsU3ojmexWyc8Qj1BmdlKnAt01cX281u7yypdgGZbZRKtJ80Oi6LRw/bHUHZWKjWGp0OR0FLAE+izyMxIZ6ZW7/rcnIRpYSBSauR41TRVoEJ3fz1jnTAwfu8p2q+RpMOTjlLadwL+OcOVSH8aXKW6Bm5WbNdsL3LuFzxIHutceq8YEppG2LZxB3s57+etTX3A4Q+rVkA0r+cPc9P+kKXxojk6W/B2QeiyHuvyOwPGcTecHJ/jMnG6/VyOxNJePq9kGdLzN6nsBZ1jFYCPaDEElMh+Ykv/tcHlcT3bLWeHfDMjc9wMRF3mDgc7MyMjiMR4yIQqwVSfr2qePySU/0SfRSVapZrCq2BjX2Zzgf0mXcM2d/kzPelMR9ZkVvvNh/0XYn/9CRLWkv+SW/55+Ll9O91w/+gw3y2+Dd4ARGClzOzXxzMTwBCdpkuDB0g0yssTWO1xun2FkTwb7Za/wWyx4qOCeWwX+SZ9jCqE8uV9DFns1ZQ2gdMET7H9s6iQX0HeRwZDLLzNztVgT2nytaxRj7galal6Zv0BYN3JtSsUInPiwbd5bkZhb+ozEb+oGnpchwbWDirFGeX9vC8mTF0144ab9CB4/f13EvonMp9JwscQmQ7/WHMj50mNhkM5F9hqKCiPFuWSWUY4M4ycXbhUyO/QC239KxT1cDBvBIC8ra353QWjHIEli0Z+rdN4J2VW8cpHV+rL+x4FZ3P3d42loF5HDjRUjUzcB0nga4AlbGQUOkcZPmHvqkhR2lvuJevIBWV2WAAZGQLkRkNCBOKzf4xCowxa0GXf8wXw37ETF6gXVt5IyIn75iYLkCmpM4ZICXh1gjXB3WOVtT27DZkcE9hmopXbSswJIP9kryvSHHuYL+1a2NCsbO7DkQy9pQ2YRfua5w2crODpNtNvK1Imp0HMJsdB3tUViGY5fMp7PDsizgyErnOGPbDkcTndRyB1x8ML6/G5mK/+8CRSfGbeyarhcfd2Z0kazOxLyIAtKbbjMeAJPc1qFksfbhONY5omZjKIdUd+YP8O7dqiVnvR/MAAAw89/NwloAtd7w5JEAf/Uc/WduRSxz0OOOjGsQ6AAWUi+nSFWOEVE9F5AbIlQ17nTMbyEOiQtkzC+TdHN2e2jGHQMUt2djwZVV0Vc9SCAd7cQL7fZmfhL4MSDVEdg8qgnyM9Mf9Nk5lWEOf2FjQO1+U5GAlJZWHgp+gg1KA1vhPFxmatzeNsQZIInNUUUV5uj311wH2XbBu0iJLM5Yji/ZeNMcBkw4WKPst/VraAgGFzPbxYGcsaVwNAaw0vRpxvnel9wZUY0OqKr+omxoWNTztBrl/FTyQbYj5SjTsyHCIZWKw6KbTiFtz/ACodxmI4H4wsENg110AAAA">
+            <h3>Mel 350ml</h3>
+            <div class="counter">
+                <button onclick="alterar(this,-1)">-</button>
+                <span>0</span>
+                <button onclick="alterar(this,1)">+</button>
+            </div>
+            <a onclick="abrirFormulario(this)">Comprar no WhatsApp</a>
+        </div>
+
+        <div class="card" data-tamanho="600ml">
+            <img src="data:image/webp;base64,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">
+            <h3>Mel 600ml</h3>
+            <div class="counter">
+                <button onclick="alterar(this,-1)">-</button>
+                <span>0</span>
+                <button onclick="alterar(this,1)">+</button>
+            </div>
+            <a onclick="abrirFormulario(this)">Comprar no WhatsApp</a>
+        </div>
+
+        <div class="card" data-tamanho="1L">
+            <img src="data:image/webp;base64,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">
+            <h3>Mel 1L</h3>
+            <div class="counter">
+                <button onclick="alterar(this,-1)">-</button>
+                <span>0</span>
+                <button onclick="alterar(this,1)">+</button>
+            </div>
+            <a onclick="abrirFormulario(this)">Comprar no WhatsApp</a>
+        </div>
+
+    </div>
+</section>
+
+<section class="cta">
+    <h2>Faça seu pedido agora mesmo</h2>
+    <p>Atendimento rápido, direto e personalizado via WhatsApp</p>
+
+    <!-- BOTÃO CTA -->
+    <a href="#" class="cta-whatsapp" data-origem="cta-site">
+        Entrar em contato
+    </a>
+</section>
+
+<div class="form-modal" id="formModal">
+    <div class="form-box">
+        <span class="close-modal" onclick="fecharFormulario()">×</span>
+
+    <label>Nome:</label>
+    <input id="nome">
+
+        <label>Forma de pagamento:</label>
+        <select id="pagamento">
+            <option>Dinheiro</option>
+            <option>Crédito</option>
+            <option>Débito</option>
+            <option>Pix</option>
+        </select>
+
+        <label>Entrega ou retirada:</label>
+        <select id="entrega" onchange="toggleEntrega()">
+            <option value="Retirada">Retirada</option>
+            <option value="Entrega">Entrega</option>
+        </select>
+
+        <div id="retirada" class="local-retirada"
+        onclick="window.open('https://maps.app.goo.gl/nsf9DZbdaHfcwYch9?g_st=ic','_blank')">
+            Praça Joaquim Nabuco - Paudalho/PE
+        </div>
+
+        <input id="endereco" placeholder="Endereço de entrega" style="display:none">
+
+        <button onclick="enviarWhats()">Enviar pedido no WhatsApp</button>
+    </div>
+</div>
+
+<footer>
+    © 2026 Apiário Malta — Todos os direitos reservados
+</footer>
+
+<script>
+const track = document.querySelector('.carousel-track');
+const slides = document.querySelectorAll('.carousel img');
+const indicators = document.querySelector('.indicators');
+let index = 0;
+
+slides.forEach((_,i)=>{
+    const dot = document.createElement('span');
+    if(i===0) dot.classList.add('active');
+    dot.onclick=()=>move(i);
+    indicators.appendChild(dot);
+});
+
+function move(i){
+    index=i;
+    track.style.transform=`translateX(-${i*100}%)`;
+    document.querySelectorAll('.indicators span')
+    .forEach((d,j)=>d.classList.toggle('active',j===i));
+}
+
+setInterval(()=>{
+    index=(index+1)%slides.length;
+    move(index);
+},2000);
+
+function alterar(btn,valor){
+    const span = btn.parentElement.querySelector('span');
+    let num = parseInt(span.innerText);
+    num += valor;
+    if(num<0) num=0;
+    if(num>10) num=10;
+    span.innerText=num;
+}
+
+let produtoAtual, qtdAtual;
+
+function abrirFormulario(btn){
+    const card = btn.parentElement;
+    produtoAtual = card.dataset.tamanho;
+    qtdAtual = card.querySelector('span').innerText;
+    if(qtdAtual==0){ alert('Selecione a quantidade'); return; }
+    document.getElementById('formModal').style.display='flex';
+}
+
+  function fecharFormulario(){
+    document.getElementById('formModal').style.display='none';
+}
+
+function toggleEntrega(){
+    const tipo = document.getElementById('entrega').value;
+    document.getElementById('retirada').style.display = tipo==='Retirada'?'block':'none';
+    document.getElementById('endereco').style.display = tipo==='Entrega'?'block':'none';
+}
+
+function enviarWhats(){
+    const nome = document.getElementById('nome').value;
+    const pag = document.getElementById('pagamento').value;
+    const tipo = document.getElementById('entrega').value;
+    const endDigitado = document.getElementById('endereco').value;
+
+    const enderecoFinal = tipo === 'Retirada'
+        ? 'Praça Joaquim Nabuco - Paudalho/PE'
+        : endDigitado;
+
+    const hoje = new Date().toLocaleDateString('pt-BR');
+
+    const msg =
+`Olá, Apiário Malta. Meu nome é *${nome}*. Gostaria de pedir:
+
+🍯 *Produto:* Mel ${produtoAtual}
+📦 *Quantidade:* ${qtdAtual}
+💰 *Forma de pagamento:* ${pag}
+📅 *Data do pedido:* ${hoje}
+🚚 *Tipo:* ${tipo}
+📍 *Endereço:* ${enderecoFinal}`;
+
+    window.open(
+        `https://wa.me/5581985184913?text=${encodeURIComponent(msg)}`,
+        '_blank'
+    );
+}
+  
+</script>
+
+  <script>
+document.querySelector('.cta-whatsapp').addEventListener('click', function(e){
+    e.preventDefault();
+
+    const telefone = '5581985184913'; // DDI + DDD + número
+    const origem = this.dataset.origem;
+
+    const mensagem = `
+Olá! Entrei em contato através do site do Apiário Malta.
+
+Gostaria de mais informações sobre os produtos.
+`;
+
+    const url = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
+    window.open(url, '_blank');
+});
+</script>
+
+
+</body>
+</html>
