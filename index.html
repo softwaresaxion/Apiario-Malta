@@ -45,9 +45,30 @@ header h1{
 }
 
 /* INSTITUCIONAL */
-.institucional{
-    max-width:1100px;
+/* CONTAINER GERAL */
+.conteudo-home{
+    max-width:1200px;
     margin:40px auto;
+    padding:0 20px;
+}
+
+/* CARDS LADO A LADO */
+.cards-home{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    align-items:stretch;
+}
+
+/* MOBILE: EMPILHA OS CARDS */
+@media (max-width:900px){
+    .cards-home{
+        grid-template-columns:1fr;
+    }
+}
+
+/* CARD INSTITUCIONAL */
+.institucional{
     background:#fff;
     border-radius:20px 20px 0 0;
     padding:40px;
@@ -55,13 +76,14 @@ header h1{
 }
 
 .institucional img{
+    display:block;
     width:100%;
-    height:auto;
-    max-height:280px;
+    height:280px;        /* 👈 tamanho padrão (PC) */
     object-fit:cover;
     border-radius:14px;
     margin-bottom:25px;
 }
+
 
 .institucional h2{
     margin-bottom:15px;
@@ -72,10 +94,37 @@ header h1{
     color:#555;
 }
 
+/* CARD PROCESSO */
+.processo-card{
+    background:#fff;
+    border-radius:20px 20px 0 0;
+    padding:40px;
+    box-shadow:0 8px 25px rgba(0,0,0,.06);
+}
+
+.processo-card h2{
+    margin-bottom:20px;
+    color:#1B5E20;
+}
+
+.processo-lista{
+    list-style:none;
+    padding:0;
+    margin:0;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.processo-lista li{
+    color:#555;
+    line-height:1.6;
+}
+
 /* CARROSSEL */
 .carousel{
-    max-width:900px;
-    width:90%;
+    max-width:500px;
+    width:80%;
     aspect-ratio:16/9;
     margin:40px auto;
     overflow:hidden;
@@ -248,7 +297,7 @@ header h1{
 .card a{
     margin-top:auto;
     width:100%;
-    background:#25D366;
+    background:#1B5E20;
     color:#fff;
     padding:12px;
     border-radius:6px;
@@ -447,26 +496,83 @@ footer{
     <h1>Apiário Malta</h1>
 </header>
 
-<section class="institucional">
-    <img src="https://images.unsplash.com/photo-1505577058444-a3dab90d4253?q=80&w=1200&auto=format&fit=crop" alt="Apiário e produção de mel">
+<section class="conteudo-home">
 
-    <h2>Sobre o Apiário Malta</h2>
-    <p>
-        O Apiário Malta atua na produção de mel puro e natural, acompanhando
-        todo o processo desde o cuidado com as abelhas até a embalagem final.
-        Trabalhamos com responsabilidade ambiental, qualidade e rastreabilidade,
-        garantindo um produto saudável e confiável para nossos clientes.
+    <!-- CARDS LADO A LADO -->
+    <div class="cards-home">
+
+        <!-- CARD INSTITUCIONAL -->
+        <section class="institucional">
+            <img src="https://images.unsplash.com/photo-1505577058444-a3dab90d4253?q=80&w=1200&auto=format&fit=crop" alt="Apiário e produção de mel">
+
+            <h2>Sobre o Apiário Malta</h2>
+            <p>
+                O Apiário Malta atua na produção de mel puro e natural, acompanhando
+                todo o processo desde o cuidado com as abelhas até a embalagem final.
+                Trabalhamos com responsabilidade ambiental, qualidade e rastreabilidade,
+                garantindo um produto saudável e confiável para nossos clientes.
+            </p>
+        </section>
+
+        <!-- NOVO CARD – PROCESSO -->
+        <section class="processo-card">
+    <h2>Como Produzimos Nosso Mel</h2>
+
+    <p class="processo-intro">
+        Cada etapa da produção do Mel Apiário Malta é pensada para garantir
+        pureza, sabor e segurança alimentar, respeitando as abelhas e o meio ambiente.
     </p>
+
+    <ul class="processo-lista">
+        <li>
+            <strong>🐝 Cuidado com as abelhas</strong>
+            <span>
+                Nossas colmeias são manejadas de forma responsável,
+                preservando o bem-estar das abelhas e o equilíbrio natural.
+            </span>
+        </li>
+
+        <li>
+            <strong>🍯 Extração cuidadosa</strong>
+            <span>
+                O mel é retirado sem aquecimento excessivo,
+                mantendo suas propriedades naturais, aroma e sabor.
+            </span>
+        </li>
+
+        <li>
+            <strong>🧪 Qualidade e rastreabilidade</strong>
+            <span>
+                Cada lote passa por controle rigoroso,
+                garantindo um produto puro, seguro e confiável.
+            </span>
+        </li>
+
+        <li>
+            <strong>📦 Envase seguro</strong>
+            <span>
+                O envase é feito em ambiente controlado,
+                preservando a qualidade até chegar à sua mesa.
+            </span>
+        </li>
+    </ul>
 </section>
 
-<section class="carousel">
-    <div class="carousel-track">
-        <img src="https://th.bing.com/th/id/OIP.f6I-bJir9XBc9uWAIvxpdwHaHa?w=220&h=220&c=7&r=0&o=7&pid=1.7&rm=3">
-        <img src="https://th.bing.com/th/id/OIP.yrU1m0Y0p1I4a0dAgg5TFQHaHa?w=216&h=216&c=7&r=0&o=7&pid=1.7&rm=3">
-        <img src="https://th.bing.com/th/id/OIP.qEicaQvTo0PRD3Klfi3dQgHaEW?w=305&h=180&c=7&r=0&o=7&pid=1.7&rm=3">
+
     </div>
-    <div class="indicators"></div>
+
+    <!-- CARROSSEL ABAIXO DOS CARDS -->
+    <section class="carousel">
+        <div class="carousel-track">
+            <img src="https://tse3.mm.bing.net/th/id/OIP.dPjn8Dh-TtRDEXQ1hmmF-AHaE8?cb=defcache2defcache=1&rs=1&pid=ImgDetMain&o=7&rm=3">
+            <img src="https://tse4.mm.bing.net/th/id/OIP.k3um8YHk0hSyAAe0-hF-JgHaE7?cb=defcache2defcache=1&rs=1&pid=ImgDetMain&o=7&rm=3">
+            <img src="https://tse1.mm.bing.net/th/id/OIP.CJeEGHBFqwvNjM8wVGOMuwHaE7?cb=defcache2defcache=1&rs=1&pid=ImgDetMain&o=7&rm=3">
+        </div>
+        <div class="indicators"></div>
+    </section>
+
 </section>
+
 
     <section class="beneficios">
     <div class="beneficios-container">
@@ -514,7 +620,7 @@ footer{
                 <button onclick="alterar(this,1)">+</button>
             </div>
 
-            <a onclick="abrirFormulario(this)">Comprar no WhatsApp</a>
+            <a onclick="abrirFormulario(this)">Adicionar Pedido</a>
         </div>
 
         <div class="card" data-tamanho="600ml" data-preco="40">
@@ -531,7 +637,7 @@ footer{
                 <button onclick="alterar(this,1)">+</button>
             </div>
 
-            <a onclick="abrirFormulario(this)">Comprar no WhatsApp</a>
+            <a onclick="abrirFormulario(this)">Adicionar Pedido</a>
         </div>
 
         <div class="card" data-tamanho="1L" data-preco="60">
@@ -548,7 +654,7 @@ footer{
                 <button onclick="alterar(this,1)">+</button>
             </div>
 
-            <a onclick="abrirFormulario(this)">Comprar no WhatsApp</a>
+            <a onclick="abrirFormulario(this)">Adicionar Pedido</a>
         </div>
 
     </div>
@@ -623,7 +729,7 @@ function move(i){
 setInterval(()=>{
     index=(index+1)%slides.length;
     move(index);
-},2000);
+},4000);
 
 function alterar(btn,valor){
     const span = btn.parentElement.querySelector('span');
