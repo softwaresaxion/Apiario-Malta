@@ -146,6 +146,7 @@ header h1{
     text-align:center;
 }
 
+/* IMAGEM */
 .card img{
     width:100%;
     max-width:220px;
@@ -154,9 +155,31 @@ header h1{
     margin-bottom:15px;
 }
 
-.card h3{
+/* NOVO: HEADER DO CARD (NOME + PREÇO) */
+.card-header{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
     margin-bottom:10px;
 }
+
+/* NOME DO PRODUTO */
+.produto-nome{
+    font-size:18px;
+    font-weight:600;
+    color:#1f1f1f;
+    text-align:left;
+}
+
+/* PREÇO DO PRODUTO */
+.produto-preco{
+    font-size:18px;
+    font-weight:700;
+    color:#F4B400;
+    text-align:right;
+}
+
 
 /* BENEFÍCIOS */
 .beneficios{
@@ -477,36 +500,54 @@ footer{
     <h2>Nossos Produtos</h2>
     <div class="cards">
 
-        <div class="card" data-tamanho="350ml">
-            <img src="data:image/webp;base64,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">
-            <h3>Mel 350ml</h3>
+        <div class="card" data-tamanho="350ml" data-preco="25">
+            <img src="https://tse3.mm.bing.net/th/id/OIP.FpqQFgjVwGdecdSA_cyadQHaHa?rs=1&pid=ImgDetMain&o=7&rm=3">
+            
+            <div class="card-header">
+                <span class="produto-nome">Mel 350ml</span>
+                <span class="produto-preco">R$ 25,00</span>
+            </div>
+
             <div class="counter">
                 <button onclick="alterar(this,-1)">-</button>
                 <span>0</span>
                 <button onclick="alterar(this,1)">+</button>
             </div>
+
             <a onclick="abrirFormulario(this)">Comprar no WhatsApp</a>
         </div>
 
-        <div class="card" data-tamanho="600ml">
-            <img src="data:image/webp;base64,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">
-            <h3>Mel 600ml</h3>
+        <div class="card" data-tamanho="600ml" data-preco="40">
+            <img src="https://tse3.mm.bing.net/th/id/OIP.FpqQFgjVwGdecdSA_cyadQHaHa?rs=1&pid=ImgDetMain&o=7&rm=3">
+            
+            <div class="card-header">
+                <span class="produto-nome">Mel 600ml</span>
+                <span class="produto-preco">R$ 40,00</span>
+            </div>
+
             <div class="counter">
                 <button onclick="alterar(this,-1)">-</button>
                 <span>0</span>
                 <button onclick="alterar(this,1)">+</button>
             </div>
+
             <a onclick="abrirFormulario(this)">Comprar no WhatsApp</a>
         </div>
 
-        <div class="card" data-tamanho="1L">
-            <img src="data:image/webp;base64,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">
-            <h3>Mel 1L</h3>
+        <div class="card" data-tamanho="1L" data-preco="60">
+            <img src="https://tse3.mm.bing.net/th/id/OIP.FpqQFgjVwGdecdSA_cyadQHaHa?rs=1&pid=ImgDetMain&o=7&rm=3">
+            
+            <div class="card-header">
+                <span class="produto-nome">Mel 1L</span>
+                <span class="produto-preco">R$ 60,00</span>
+            </div>
+
             <div class="counter">
                 <button onclick="alterar(this,-1)">-</button>
                 <span>0</span>
                 <button onclick="alterar(this,1)">+</button>
             </div>
+
             <a onclick="abrirFormulario(this)">Comprar no WhatsApp</a>
         </div>
 
@@ -593,17 +634,26 @@ function alterar(btn,valor){
     span.innerText=num;
 }
 
-let produtoAtual, qtdAtual;
+let produtoAtual, qtdAtual, precoAtual, totalAtual;
 
 function abrirFormulario(btn){
     const card = btn.parentElement;
+
     produtoAtual = card.dataset.tamanho;
-    qtdAtual = card.querySelector('span').innerText;
-    if(qtdAtual==0){ alert('Selecione a quantidade'); return; }
+    precoAtual = parseFloat(card.dataset.preco);
+    qtdAtual = parseInt(card.querySelector('.counter span').innerText);
+
+    if(qtdAtual === 0){
+        alert('Selecione a quantidade');
+        return;
+    }
+
+    totalAtual = precoAtual * qtdAtual;
+
     document.getElementById('formModal').style.display='flex';
 }
 
-  function fecharFormulario(){
+function fecharFormulario(){
     document.getElementById('formModal').style.display='none';
 }
 
@@ -625,12 +675,14 @@ function enviarWhats(){
 
     const hoje = new Date().toLocaleDateString('pt-BR');
 
-    const msg =
+const msg =
 `Olá, Apiário Malta. Meu nome é *${nome}*. Gostaria de pedir:
 
 🍯 *Produto:* Mel ${produtoAtual}
 📦 *Quantidade:* ${qtdAtual}
-💰 *Forma de pagamento:* ${pag}
+💰 *Valor unitário:* R$ ${precoAtual.toFixed(2)}
+💵 *Valor total:* R$ ${totalAtual.toFixed(2)}
+💳 *Forma de pagamento:* ${pag}
 📅 *Data do pedido:* ${hoje}
 🚚 *Tipo:* ${tipo}
 📍 *Endereço:* ${enderecoFinal}`;
