@@ -1,508 +1,407 @@
 <html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Apiário Malta</title>
-
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Apiário Malta</title>
 <style>
 :root{
-    --primary:#F4B400;
-    --dark:#1f1f1f;
-    --gray:#f5f5f5;
+--primary:#F4B400;
+--dark:#1f1f1f;
+ --gray:#f5f5f5;
 }
-
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Segoe UI', Arial, sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI', Arial, sans-serif;
 }
-
 body{
-    background:#fafafa;
-    color:#333;
+background:#fafafa;
+color:#333;
 }
-
-/* HEADER */
 header{
-    background:#fff;
-    display:flex;
-    align-items:center;
-    gap:15px;
-    padding:15px 30px;
-    box-shadow:0 2px 8px rgba(0,0,0,.05);
-    flex-wrap:wrap;
+background:#fff;
+display:flex;
+align-items:center;
+gap:15px;
+padding:15px 30px;
+box-shadow:0 2px 8px rgba(0,0,0,.05);
+flex-wrap:wrap;
 }
-
 header img{
-    height:70px;
+height:70px;
 }
-
 header h1{
-    font-size:26px;
-    color:#B07A00; /* mel escuro */
-    font-weight:600;
+font-size:26px;
+color:#B07A00;
+font-weight:600;
 }
-
-/* INSTITUCIONAL */
-/* CONTAINER GERAL */
 .conteudo-home{
-    max-width:1200px;
-    margin:40px auto;
-    padding:0 20px;
+max-width:1200px;
+margin:40px auto;
+padding:0 20px;
 }
-
-/* CARDS LADO A LADO */
 .cards-home{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:40px;
-    align-items:stretch;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+align-items:stretch;
 }
-
-/* MOBILE: EMPILHA OS CARDS */
 @media (max-width:900px){
-    .cards-home{
-        grid-template-columns:1fr;
-    }
+.cards-home{
+grid-template-columns:1fr;
 }
-
-/* CARD INSTITUCIONAL */
+}
 .institucional{
-    background:#fff;
-    border-radius:20px 20px 0 0;
-    padding:40px;
-    box-shadow:0 8px 25px rgba(0,0,0,.06);
+background:#fff;
+border-radius:20px 20px 0 0;
+padding:40px;
+box-shadow:0 8px 25px rgba(0,0,0,.06);
 }
-
 .institucional img{
-    display:block;
-    width:100%;
-    height:280px;        /* 👈 tamanho padrão (PC) */
-    object-fit:cover;
-    border-radius:14px;
-    margin-bottom:25px;
+display:block;
+width:100%;
+height:280px;
+object-fit:cover;
+border-radius:14px;
+margin-bottom:25px;
 }
-
-
 .institucional h2{
-    margin-bottom:15px;
+margin-bottom:15px;
 }
-
 .institucional p{
-    line-height:1.7;
-    color:#555;
+line-height:1.7;
+color:#555;
 }
-
-/* CARD PROCESSO */
 .processo-card{
-    background:#fff;
-    border-radius:20px 20px 0 0;
-    padding:40px;
-    box-shadow:0 8px 25px rgba(0,0,0,.06);
+background:#fff;
+border-radius:20px 20px 0 0;
+padding:40px;
+box-shadow:0 8px 25px rgba(0,0,0,.06);
 }
-
 .processo-card h2{
-    margin-bottom:20px;
-    color:#1B5E20;
+margin-bottom:20px;
+color:#1B5E20;
 }
-
 .processo-lista{
-    list-style:none;
-    padding:0;
-    margin:0;
-    display:flex;
-    flex-direction:column;
-    gap:15px;
+list-style:none;
+padding:0;
+margin:0;
+display:flex;
+flex-direction:column;
+gap:15px;
 }
-
 .processo-lista li{
-    color:#555;
-    line-height:1.6;
+color:#555;
+line-height:1.6;
 }
-
-/* CARROSSEL */
 .carousel{
-    max-width:500px;
-    width:80%;
-    aspect-ratio:16/9;
-    margin:40px auto;
-    overflow:hidden;
-    border-radius:14px;
-    position:relative;
+max-width:500px;
+width:80%;
+aspect-ratio:16/9;
+margin:40px auto;
+overflow:hidden;
+border-radius:14px;
+position:relative;
 }
-
 .carousel-track{
-    display:flex;
-    height:100%;
-    transition:.6s ease;
+display:flex;
+height:100%;
+transition:.6s ease;
 }
-
 .carousel img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    flex-shrink:0;
+width:100%;
+height:100%;
+object-fit:cover;
+flex-shrink:0;
 }
-
 .indicators{
-    position:absolute;
-    bottom:10px;
-    width:100%;
-    display:flex;
-    justify-content:center;
-    gap:8px;
+position:absolute;
+bottom:10px;
+width:100%;
+display:flex;
+justify-content:center;
+gap:8px;
 }
-
 .indicators span{
-    width:10px;
-    height:10px;
-    background:#ddd;
-    border-radius:50%;
-    cursor:pointer;
+width:10px;
+height:10px;
+background:#ddd;
+border-radius:50%;
+cursor:pointer;
 }
-
 .indicators .active{
-    background:var(--primary);
+background:var(--primary);
 }
-
-/* PRODUTOS */
 .produtos{
-    max-width:1100px;
-    margin:60px auto;
-    padding:0 20px;
+max-width:1100px;
+margin:60px auto;
+padding:0 20px;
 }
-
 .produtos h2{
-    text-align:center;
-    margin-bottom:40px;
+text-align:center;
+margin-bottom:40px;
 }
-
 .cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:30px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
 }
-
 .card{
-    background:#fff;
-    border-radius:14px;
-    padding:25px;
-    box-shadow:0 8px 20px rgba(0,0,0,.06);
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    text-align:center;
+background:#fff;
+border-radius:14px;
+padding:25px;
+box-shadow:0 8px 20px rgba(0,0,0,.06);
+display:flex;
+flex-direction:column;
+align-items:center;
+text-align:center;
 }
-
-/* IMAGEM */
 .card img{
-    width:100%;
-    max-width:220px;
-    height:auto;
-    object-fit:contain;
-    margin-bottom:15px;
+width:100%;
+max-width:220px;
+height:auto;
+object-fit:contain;
+margin-bottom:15px;
 }
-
-/* NOVO: HEADER DO CARD (NOME + PREÇO) */
 .card-header{
-    width:100%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:10px;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:10px;
 }
-
-/* NOME DO PRODUTO */
 .produto-nome{
-    font-size:18px;
-    font-weight:600;
-    color:#1f1f1f;
-    text-align:left;
+font-size:18px;
+font-weight:600;
+color:#1f1f1f;
+text-align:left;
 }
-
-/* PREÇO DO PRODUTO */
 .produto-preco{
-    font-size:18px;
-    font-weight:700;
-    color:#F4B400;
-    text-align:right;
+font-size:18px;
+font-weight:700;
+color:#F4B400;
+text-align:right;
 }
-
-
-/* BENEFÍCIOS */
 .beneficios{
-    background:var(--gray);
-    padding:60px 30px;
+background:var(--gray);
+padding:60px 30px;
 }
-
 .beneficios-grid{
-    max-width:1100px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:30px;
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
 }
-
 .beneficio{
-    background:#fff;
-    padding:25px;
-    border-radius:10px;
-    box-shadow:0 6px 15px rgba(0,0,0,.05);
+background:#fff;
+padding:25px;
+border-radius:10px;
+box-shadow:0 6px 15px rgba(0,0,0,.05);
 }
-
 .beneficio h4{
-    margin-bottom:10px;
+margin-bottom:10px;
 }
-
-/* CTA */
 .cta{
-    background:var(--primary);
-    color:#fff;
-    text-align:center;
-    padding:50px 20px;
+background:var(--primary);
+color:#fff;
+text-align:center;
+padding:50px 20px;
 }
-
 .cta h2{
-    margin-bottom:15px;
+margin-bottom:15px;
 }
-
-/* CONTADOR */
 .counter{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
-    margin:15px 0;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+margin:15px 0;
 }
-
 .counter button{
-    width:36px;
-    height:36px;
-    border:none;
-    border-radius:6px;
-    background:var(--primary);
-    color:#fff;
-    font-size:18px;
-    cursor:pointer;
+width:36px;
+height:36px;
+border:none;
+border-radius:6px;
+background:var(--primary);
+color:#fff;
+font-size:18px;
+cursor:pointer;
 }
-
 .counter span{
-    min-width:32px;
-    font-size:18px;
-    text-align:center;
+min-width:32px;
+font-size:18px;
+text-align:center;
 }
-
-/* BOTÃO */
 .card a{
-    margin-top:auto;
-    width:100%;
-    background:#1B5E20;
-    color:#fff;
-    padding:12px;
-    border-radius:6px;
-    text-decoration:none;
-    font-weight:600;
+margin-top:auto;
+width:100%;
+background:#1B5E20;
+color:#fff;
+padding:12px;
+border-radius:6px;
+text-decoration:none;
+font-weight:600;
 }
-
-/* MODAL */
 .form-modal{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.5);
-    display:none;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
-    z-index:1000;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.5);
+display:none;
+align-items:center;
+justify-content:center;
+padding:20px;
+z-index:1000;
 }
-
 .form-box{
-    background:#fff;
-    padding:30px;
-    border-radius:12px;
-    width:100%;
-    max-width:420px;
-    position:relative;
+background:#fff;
+padding:30px;
+border-radius:12px;
+width:100%;
+max-width:420px;
+position:relative;
 }
-
 .form-box input,
 .form-box select{
-    width:100%;
-    padding:10px;
-    margin:8px 0 18px;
-    border-radius:6px;
-    border:1px solid #ddd;
+width:100%;
+padding:10px;
+margin:8px 0 18px;
+border-radius:6px;
+border:1px solid #ddd;
 }
-
 .form-box button{
-    width:100%;
-    padding:12px;
-    background:var(--primary);
-    border:none;
-    color:#fff;
-    font-weight:600;
-    border-radius:6px;
+width:100%;
+padding:12px;
+background:var(--primary);
+border:none;
+color:#fff;
+font-weight:600;
+border-radius:6px;
 }
-
 .local-retirada{
-    margin-bottom:18px;
-    cursor:pointer;
-    text-decoration:underline;
+margin-bottom:18px;
+cursor:pointer;
+text-decoration:underline;
 }
-
 .close-modal{
-    position:absolute;
-    top:12px;
-    right:15px;
-    background:var(--primary);
-    color:#fff;
-    width:32px;
-    height:32px;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:20px;
-    cursor:pointer;
+position:absolute;
+top:12px;
+right:15px;
+background:var(--primary);
+color:#fff;
+width:32px;
+height:32px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:20px;
+cursor:pointer;
 }
-  /* BENEFÍCIOS */
 .beneficios{
-    background:#f4f6f8;
-    padding:60px 20px;
+background:#f4f6f8;
+padding:60px 20px;
 }
-
 .beneficios-container{
-    max-width:1100px;
-    margin:0 auto;
+max-width:1100px;
+margin:0 auto;
 }
-
 .beneficios-container h2{
-    text-align:center;
-    margin-bottom:40px;
-    font-size:28px;
-    color:#1f1f1f;
+text-align:center;
+margin-bottom:40px;
+font-size:28px;
+color:#1f1f1f;
 }
-
 .beneficios-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
-    gap:30px;
+display:grid;
+grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+gap:30px;
 }
-
 .beneficio-card{
-    background:#ffffff;
-    padding:28px;
-    border-radius:14px;
-    box-shadow:0 8px 22px rgba(0,0,0,0.06);
-    transition:transform .3s, box-shadow .3s;
+background:#ffffff;
+padding:28px;
+border-radius:14px;
+box-shadow:0 8px 22px rgba(0,0,0,0.06);
+transition:transform .3s, box-shadow .3s;
 }
-
 .beneficio-card:hover{
-    transform:translateY(-6px);
-    box-shadow:0 12px 28px rgba(0,0,0,0.08);
+transform:translateY(-6px);
+box-shadow:0 12px 28px rgba(0,0,0,0.08);
 }
-
 .beneficio-card h3{
-    margin-bottom:10px;
-    font-size:18px;
-    color:#1f1f1f;
+margin-bottom:10px;
+font-size:18px;
+color:#1f1f1f;
 }
-
 .beneficio-card p{
-    font-size:15px;
-    color:#555;
-    line-height:1.6;
+font-size:15px;
+color:#555;
+line-height:1.6;
 }
-
-/* CTA */
 .cta{
-    background:linear-gradient(135deg, #f4b400, #f1a800);
-    padding:70px 20px;
-    text-align:center;
-    color:#ffffff;
+background:linear-gradient(135deg, #f4b400, #f1a800);
+padding:70px 20px;
+text-align:center;
+color:#ffffff;
 }
-
 .cta h2{
-    font-size:30px;
-    margin-bottom:15px;
-    font-weight:600;
+font-size:30px;
+margin-bottom:15px;
+font-weight:600;
 }
-
 .cta p{
-    font-size:17px;
-    margin-bottom:25px;
-    opacity:0.95;
+font-size:17px;
+margin-bottom:25px;
+opacity:0.95;
 }
-
 .cta a{
-    display:inline-block;
-    background:#ffffff;
-    color:#1f1f1f;
-    padding:14px 34px;
-    border-radius:8px;
-    text-decoration:none;
-    font-weight:600;
-    transition:background .3s, transform .3s;
+display:inline-block;
+background:#ffffff;
+color:#1f1f1f;
+padding:14px 34px;
+border-radius:8px;
+text-decoration:none;
+font-weight:600;
+transition:background .3s, transform .3s;
 }
-
 .cta a:hover{
-    background:#f4f6f8;
-    transform:scale(1.05);
+background:#f4f6f8;
+transform:scale(1.05);
 }
-
-/* RESPONSIVO */
 @media(max-width:600px){
-    .beneficios-container h2,
-    .cta h2{
-        font-size:24px;
-    }
+.beneficios-container h2,
+.cta h2{
+font-size:24px;
 }
-
-
-/* FOOTER */
+}
 footer{
-    background:#1f1f1f;
-    color:#ccc;
-    text-align:center;
-    padding:20px;
-    font-size:14px;
+background:#1f1f1f;
+color:#ccc;
+text-align:center;
+padding:20px;
+font-size:14px;
 }
-
-/* MOBILE */
 @media(max-width:600px){
-    header{
-        justify-content:center;
-        text-align:center;
-    }
-
-    header h1{
-        font-size:18px;
-    }
-
-    .institucional{
-        padding:25px;
-        margin:20px;
-    }
+header{
+justify-content:center;
+text-align:center;
+}
+header h1{
+font-size:18px;
+}
+.institucional{
+padding:25px;
+margin:20px;
+ }
 }
 </style>
-
 </head>
-
 <body>
-
 <header>
-    <img src="https://image.freepik.com/free-vector/bee-honey-logo-template_526522-78.jpg?w=2000">
-    <h1>Apiário Malta</h1>
+<img src="https://image.freepik.com/free-vector/bee-honey-logo-template_526522-78.jpg?w=2000">
+<h1>Apiário Malta</h1>
 </header>
-
 <section class="conteudo-home">
-
-    <!-- CARDS LADO A LADO -->
-    <div class="cards-home">
-
-        <!-- CARD INSTITUCIONAL -->
-        <section class="institucional">
+<div class="cards-home">
+<section class="institucional">
             <img src="https://www.beevabrazil.com/cdn/shop/articles/large12.jpg?v=1725992836" alt="Apiário e produção de mel">
 
             <h2>Sobre o Apiário Malta</h2>
@@ -514,7 +413,7 @@ footer{
             </p>
         </section>
 
-        <!-- NOVO CARD – PROCESSO -->
+
         <section class="processo-card">
     <h2>Como Produzimos Nosso Mel</h2>
 
@@ -561,7 +460,7 @@ footer{
 
     </div>
 
-    <!-- CARROSSEL ABAIXO DOS CARDS -->
+
     <section class="carousel">
         <div class="carousel-track">
             <img src="https://tse3.mm.bing.net/th/id/OIP.dPjn8Dh-TtRDEXQ1hmmF-AHaE8?cb=defcache2defcache=1&rs=1&pid=ImgDetMain&o=7&rm=3">
@@ -664,7 +563,6 @@ footer{
     <h2>Faça seu pedido agora mesmo</h2>
     <p>Atendimento rápido, direto e personalizado via WhatsApp</p>
 
-    <!-- BOTÃO CTA -->
     <a href="#" class="cta-whatsapp" data-origem="cta-site">
         Entrar em contato
     </a>
@@ -793,32 +691,24 @@ const msg =
 🚚 *Tipo:* ${tipo}
 📍 *Endereço:* ${enderecoFinal}`;
 
-    window.open(
+window.open(
         `https://wa.me/5581985184913?text=${encodeURIComponent(msg)}`,
         '_blank'
     );
 }
-  
 </script>
-
-  <script>
+<script>
 document.querySelector('.cta-whatsapp').addEventListener('click', function(e){
-    e.preventDefault();
-
-    const telefone = '5581985184913'; // DDI + DDD + número
-    const origem = this.dataset.origem;
-
-    const mensagem = `
+e.preventDefault();
+const telefone = '5581985184913';
+const origem = this.dataset.origem;
+const mensagem = `
 Olá! Entrei em contato através do site do Apiário Malta.
-
 Gostaria de mais informações sobre os produtos.
 `;
-
-    const url = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
-    window.open(url, '_blank');
+const url = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
+window.open(url, '_blank');
 });
 </script>
-
-
 </body>
 </html>
